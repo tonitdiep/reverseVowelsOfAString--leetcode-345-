@@ -25,21 +25,27 @@ var reverseVowels = function(s) {
     let left = 0,
         right = s.length - 1;
     s = s.split("")
-    let leftStr = '',
-        rightStr = '';
+    console.log('lin 9 s:', s)
+
     
     while (left < right) {
-
-        if ((vowels.indexOf(s[left]) !== - 1) && (vowels.indexOf(s[right]) !== - 1 )) {
-            const temp = s[left]
-            s[left] = s[right]
-            s[right] = temp
+// -1 means absence of on constance til a vowel
+        if (vowels.indexOf(s[left]) === -1) {
             left++
+       
+        } else if (vowels.indexOf(s[right]) === -1) {
             right--
+      
+        } else {
+            const temp = s[left];
+            s[left] = s[right];
+            s[right] = temp
 
-//         if (){
-            
-//         }   
+         left++;
+         right--;
+
+        }
+
     }
     return s.join("")
 };
